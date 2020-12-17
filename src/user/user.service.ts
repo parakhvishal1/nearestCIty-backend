@@ -1,14 +1,12 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { AuthAdminService } from 'src/admin/auth-admin/auth-admin.service';
 import { UserAuthDto } from './dto/user-admin.dto';
 
 
 @Injectable()
 export class UserService {
     constructor(
-        private readonly jwtService: JwtService,
-        private readonly adminService: AuthAdminService
+        private readonly jwtService: JwtService
     ) {}
     async userLogin(data: UserAuthDto): Promise<{}> {
         const { username, password } = data
